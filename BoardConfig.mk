@@ -92,6 +92,7 @@ TARGET_UNIFIED_DEVICE := true
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/xiaomi/armani
 TARGET_KERNEL_CONFIG := cyanogenmod_armani_defconfig
+BOARD_KERNEL_IMAGE_NAME := zImage
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=armani zcache.enabled=1
 BOARD_KERNEL_BASE := 0x00000000
@@ -111,7 +112,6 @@ MALLOC_SVELTE := true
 # Platform
 TARGET_BOARD_PLATFORM := msm8226
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno305
-USE_CLANG_PLATFORM_BUILD := true
 
 # QCOM hardware
 BOARD_USES_QCOM_HARDWARE := true
