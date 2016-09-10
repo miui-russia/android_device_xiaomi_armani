@@ -38,15 +38,12 @@
 
 void vendor_load_properties()
 {
-    char platform[PROP_VALUE_MAX];
-    char modem[PROP_VALUE_MAX];
-    int rc;
 
-    rc = property_get("ro.board.platform", platform);
-    if (!rc || !ISMATCH(platform, ANDROID_TARGET))
+    std::string platform = property_get("ro.board.platform");
+    if (!ISMATCH(platform, ANDROID_TARGET))
         return;
 
-    property_get("ro.boot.modem", modem);
+    std::string modem = property_get("ro.boot.modem");
 
     if (strstr(modem, "HM1AW")) {
         property_set("ro.product.model", "HM 1SW");
