@@ -34,20 +34,18 @@
 #include "log.h"
 #include "util.h"
 
-#define ISMATCH(a,b)    (!strncmp(a,b,PROP_VALUE_MAX))
-
 void vendor_load_properties()
 {
 
     std::string platform = property_get("ro.board.platform");
-    if (!ISMATCH(platform, ANDROID_TARGET))
+    if (platform!= ANDROID_TARGET)
         return;
 
     std::string modem = property_get("ro.boot.modem");
 
-    if (strstr(modem, "HM1AW")) {
+    if (strstr(modem.c_str(), "HM1AW")) {
         property_set("ro.product.model", "HM 1SW");
-    } else if (strstr(modem, "HM1AC")) {
+    } else if (strstr(modem.c_str(), "HM1AC")) {
         property_set("ro.product.model", "HM 1SC");
     }
 
